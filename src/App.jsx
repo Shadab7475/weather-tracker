@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import toast, { Toaster } from "react-hot-toast";
 import { IoSearch } from "react-icons/io5";
 import humidity from "./assets/humidity.png"
 import wind from "./assets/wind.png"
@@ -37,8 +38,17 @@ const App = () => {
     console.log(data);
     
     setCity("")
+    if (!res.ok) {
+        
+        
+
+     
+      toast.error("City not found ❌");
+      return;
+    }
     
   }
+
 
   
 
@@ -113,7 +123,7 @@ const App = () => {
                 </div>
 
             </div>
-            </div> : ""
+            </div> : <Toaster position="top-center" />
             }
             
          
@@ -123,35 +133,5 @@ const App = () => {
   )
 }
 
-
-//  <div class="error">
-//             <p>Invalid city name</p>
-//         </div>
-//         <div class="weather">
-//             {/* <img src="./image/image/weather-icon (5).png" class="weather-icon"> */}
-            
-
-//             <h1 class="temp">22°C</h1>
-//             <h2 class="city">new york</h2>
-//             <div class="details">
-//                 <div class="col">
-//                     {/* <img src="./image/image/humidity.png"> */}
-//                     <div>
-//                         <p class="humidity">50%</p>
-//                         <p>Humidity</p>
-//                     </div>
-//                 </div>
-//                 <div class="col">
-//                     {/* <img src="./image/image/wind.png"> */}
-//                     <div>
-//                         <p class="wind">15 Km/h</p>
-//                         <p>Wind Speed</p>
-//                     </div>
-//                 </div>
-//             </div>
-
-
-
-//         </div>
 
 export default App
